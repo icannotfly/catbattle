@@ -27,3 +27,8 @@
 *.exe
 *.out
 *.app
+/Debug/catbattle.tlog
+/Debug/vc140.pdb
+/Debug/vc140.idb
+/Debug/catbattle.log
+/catbattle.vcxproj.filters
