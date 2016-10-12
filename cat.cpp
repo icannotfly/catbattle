@@ -153,3 +153,40 @@ float Cat::getWinLossRatio() const
 {
 	return winLossRatio;
 }
+
+int Cat::chooseAttack(bool bIsHumanControlled)
+{
+	if (bIsHumanControlled)
+	{
+		//if human, prompt player for attack
+
+		cout << "Available attacks:" << endl;
+		for (int i = 0; i < NUM_MAX_ATTACKS; i++)
+		{
+			if (getAttack(i) != nullptr && getAttack(i)->getName() != "")
+			{
+				cout << i << ") " << getAttack(i)->getName() << endl;
+			}
+		}
+
+		//get input
+		cout << "Please choose an attack: ";
+		int playerInput = -1;
+		
+		do
+		{
+			cin >> playerInput; //TODO inputting a char here seems to crash the game
+		}
+		while (playerInput < 0 || playerInput > NUM_MAX_ATTACKS - 1);
+
+		return 2;
+	}
+	else
+	{
+		//if cpu, decide at random
+
+		return 2;
+	}
+
+	return -1;
+}

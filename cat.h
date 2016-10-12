@@ -75,4 +75,7 @@ public:
 
 	//
 	float getWinLossRatio() const;
+
+	//decides on an attack to use, either at random if bIsHumanControlled == false or via player input if its true; returns index of chosen attack
+	int chooseAttack(bool bIsHumanControlled = false);
 };

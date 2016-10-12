@@ -13,6 +13,7 @@ bool doBattle(Cat *player, Cat *opponent)
 		int damage = 0;
 
 		//player goes first
+		int tempattack = player->chooseAttack(true);
 		player->attack(opponent, player->getAttack(0));
 
 		//then opponent
