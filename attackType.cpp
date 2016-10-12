@@ -5,7 +5,7 @@ using namespace std;
 
 AttackType::AttackType()
 {
-	name = "Unnamed Attack";
+	name = "";
 	presentTense = "attacks";
 	minDamage = 1;
 	maxDamage = 2;
