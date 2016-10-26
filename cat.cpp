@@ -6,6 +6,7 @@ using namespace std;
 Cat::Cat()
 {
 	attacks[0] = AttackType("scratch", "scratches", 1, 2);
+	attacks[1] = AttackType("maul", "mauls", 2, 3);
 }
 
 string Cat::getName() const
