@@ -13,13 +13,12 @@ bool doBattle(Cat *player, Cat *opponent)
 		int damage = 0;
 
 		//player goes first
-		int tempattack = player->chooseAttack(true);
-		player->attack(opponent, player->getAttack(0));
+		player->attack(opponent, player->getAttack(player->chooseAttack(true)));
 
 		//then opponent
 		if (opponent->isAlive())
 		{
-			opponent->attack(player, opponent->getAttack(0));
+			opponent->attack(player, opponent->getAttack(opponent->chooseAttack()));
 		}
 
 		//list health for both
