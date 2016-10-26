@@ -165,21 +165,30 @@ int Cat::chooseAttack(bool bIsHumanControlled)
 		{
 			if (getAttack(i) != nullptr && getAttack(i)->getName() != "")
 			{
-				cout << i << ") " << getAttack(i)->getName() << endl;
+				cout << i+1 << ") " << getAttack(i)->getName() << endl;
 			}
 		}
 
 		//get input
-		cout << "Please choose an attack: ";
 		int playerInput = -1;
-		
-		do
-		{
-			cin >> playerInput; //TODO inputting a char here seems to crash the game
-		}
-		while (playerInput < 0 || playerInput > NUM_MAX_ATTACKS - 1);
+		bool bInputValid = false;
 
-		return 2;
+		cout << "Choose an attack: ";
+		cin >> playerInput;
+		bInputValid = cin.good();
+
+		while (!bInputValid || playerInput >= NUM_MAX_ATTACKS || playerInput <= 0)
+		{
+			cout << "Invalid input; please choose a valid attack: ";
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n'); // http://stackoverflow.com/a/12722150
+			
+			//try again
+			cin >> playerInput;
+			bInputValid = cin.good();
+		}
+
+		return playerInput - 1; //return INDEX of chosen attack, not the human readable id
 	}
 	else
 	{
